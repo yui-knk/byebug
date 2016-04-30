@@ -490,13 +490,13 @@ register_tracepoints(VALUE self)
 
   if (NIL_P(traces))
   {
-    int line_msk = RUBY_EVENT_LINE;
-    int call_msk = RUBY_EVENT_CALL;
-    int ret_msk = RUBY_EVENT_RETURN | RUBY_EVENT_B_RETURN;
-    int end_msk = RUBY_EVENT_END;
-    int raw_call_msk = RUBY_EVENT_C_CALL | RUBY_EVENT_B_CALL | RUBY_EVENT_CLASS;
-    int raw_ret_msk = RUBY_EVENT_C_RETURN;
-    int raise_msk = RUBY_EVENT_RAISE;
+    rb_event_flag_t line_msk = RUBY_EVENT_LINE;
+    rb_event_flag_t call_msk = RUBY_EVENT_CALL;
+    rb_event_flag_t ret_msk = RUBY_EVENT_RETURN | RUBY_EVENT_B_RETURN;
+    rb_event_flag_t end_msk = RUBY_EVENT_END;
+    rb_event_flag_t raw_call_msk = RUBY_EVENT_C_CALL | RUBY_EVENT_B_CALL | RUBY_EVENT_CLASS;
+    rb_event_flag_t raw_ret_msk = RUBY_EVENT_C_RETURN;
+    rb_event_flag_t raise_msk = RUBY_EVENT_RAISE;
 
     VALUE tpLine = rb_tracepoint_new(Qnil, line_msk, line_event, 0);
     VALUE tpCall = rb_tracepoint_new(Qnil, call_msk, call_event, 0);
