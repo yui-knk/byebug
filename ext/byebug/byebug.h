@@ -40,8 +40,8 @@ typedef struct
   int thnum;
 
   int dest_frame;       /* next stop's frame if stopped by next     */
-  int lines;    /* # of lines in dest_frame before stopping */
-  int steps;    /* # of steps before stopping               */
+  int lines;            /* # of lines in dest_frame before stopping */
+  int steps;            /* # of steps before stopping               */
   int steps_out;        /* # of returns before stopping             */
 
   VALUE backtrace;      /* [[loc, self, klass, binding], ...] */
