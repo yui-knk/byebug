@@ -75,10 +75,6 @@ env:
     - "LIBEDIT=true"
     - "LIBEDIT=false"
 
-branches:
-  only:
-    - master
-
 notifications:
   email:
     on_success: change
