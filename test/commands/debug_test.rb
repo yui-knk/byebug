@@ -27,13 +27,21 @@ module Byebug
     def test_subdebugger_stops_at_correct_point_when_invoked_through_byebug_call
       enter "debug #{example_class}.a"
 
-      debug_code(program) { assert_equal 8, frame.line }
+      if RUBY_VERSION >= '2.5.0'
+        debug_code(program) { assert_equal 7, frame.line }
+      else
+        debug_code(program) { assert_equal 8, frame.line }
+      end
     end
 
     def test_subdebugger_stops_at_correct_point_when_invoked_from_breakpoint
       enter "break #{example_class}.a", "debug #{example_class}.a"
 
-      debug_code(program) { assert_equal 6, frame.line }
+      if RUBY_VERSION >= '2.5.0'
+        debug_code(program) { assert_equal 7, frame.line }
+      else
+        debug_code(program) { assert_equal 6, frame.line }
+      end
     end
 
     def test_subdebugger_goes_back_to_previous_debugger_after_continue
